@@ -5,18 +5,20 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import udl.eps.manejoserviciokotlininc.databinding.ActivityMainBinding
+
 
 class MainActivity : AppCompatActivity() , View.OnClickListener {
 
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val btnInicio: Button = findViewById(R.id.btnIn)
-        val btnFin: Button = findViewById(R.id.btnFin)
-
-        btnInicio.setOnClickListener(this)
-        btnFin.setOnClickListener(this)
+        binding.btnIn.setOnClickListener(this)
+        binding.btnFin.setOnClickListener(this)
 
     }
 
