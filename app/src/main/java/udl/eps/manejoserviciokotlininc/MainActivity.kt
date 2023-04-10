@@ -1,10 +1,8 @@
 package udl.eps.manejoserviciokotlininc
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import udl.eps.manejoserviciokotlininc.databinding.ActivityMainBinding
 
 
@@ -25,8 +23,8 @@ class MainActivity : AppCompatActivity() , View.OnClickListener {
     override fun onClick(src: View) {
 
         when(src.id) {
-            R.id.btnIn -> startService(`in`)
-            R.id.btnFin -> stopService(`in`)
+            R.id.btnIn -> startService(intent)
+            R.id.btnFin -> stopService(intent)
         }
     }
 }
