@@ -17,20 +17,20 @@ class ElServicio: Service() {
     override fun onCreate() {
         super.onCreate()
         Toast.makeText(this, R.string.creaserv, Toast.LENGTH_LONG).show()
-        player = MediaPlayer.create()
+        player = MediaPlayer.create(applicationContext, R.raw.train)
         player!!.isLooping = true
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         super.onStartCommand(intent, flags, startId)
         Toast.makeText(this, R.string.iniserv, Toast.LENGTH_LONG).show()
-
+        player!!.start()
         return startId
     }
 
     override fun onDestroy() {
         super.onDestroy()
         Toast.makeText(this, R.string.finaserv, Toast.LENGTH_LONG).show()
-
+        player!!.stop()
     }
 }

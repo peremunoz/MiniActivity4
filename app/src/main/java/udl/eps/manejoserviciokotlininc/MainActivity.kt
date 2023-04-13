@@ -1,5 +1,6 @@
 package udl.eps.manejoserviciokotlininc
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -21,7 +22,7 @@ class MainActivity : AppCompatActivity() , View.OnClickListener {
     }
 
     override fun onClick(src: View) {
-
+        val intent = Intent(this, ElServicio::class.java)
         when(src.id) {
             R.id.btnIn -> startService(intent)
             R.id.btnFin -> stopService(intent)
