@@ -1,6 +1,8 @@
 package udl.eps.manejoserviciokotlininc
 
+import android.content.BroadcastReceiver
 import android.content.Intent
+import android.content.IntentFilter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -12,6 +14,8 @@ class MainActivity : AppCompatActivity() , View.OnClickListener {
 
     private lateinit var binding: ActivityMainBinding
 
+    private lateinit var receiver: BroadcastReceiver
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -21,6 +25,16 @@ class MainActivity : AppCompatActivity() , View.OnClickListener {
         binding.btnFin.setOnClickListener(this)
         binding.buttonSong.setOnClickListener(this)
 
+        receiver = TheAutomaticReceiver()
+        val filter = IntentFilter()
+        filter.addAction("android.intent.action.HEADSET_PLUG")
+        registerReceiver(receiver, filter)
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        unregisterReceiver(receiver)
     }
 
     override fun onClick(src: View) {
@@ -30,16 +44,16 @@ class MainActivity : AppCompatActivity() , View.OnClickListener {
             R.id.buttonSong -> {
                 intent.putExtra("action", "start")
                 intent.putExtra("type", "song")
-                Toast.makeText(this, "Seleccionado canción", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, R.string.songbtntoast, Toast.LENGTH_LONG).show()
             }
             R.id.btnIn -> {
                 intent.putExtra("action", "start")
                 intent.putExtra("type", "sound")
-                Toast.makeText(this, "Seleccionado sonido", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, R.string.soundbtntoast, Toast.LENGTH_LONG).show()
             }
             else -> {
                 intent.putExtra("action", "stop")
-                Toast.makeText(this, "Seleccionado finalizar", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, R.string.finbtntoast, Toast.LENGTH_LONG).show()
             }
         }
 

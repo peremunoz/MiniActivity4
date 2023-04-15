@@ -27,12 +27,12 @@ class ElServicio: Service() {
         if (type == "song") {
             songPlayer = MediaPlayer.create(applicationContext, R.raw.song)
             songPlayer!!.isLooping = true
-            Toast.makeText(this, "Servicio canción activado", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, R.string.songservon, Toast.LENGTH_LONG).show()
             songPlayer!!.start()
         } else if (type == "sound") {
             soundPlayer = MediaPlayer.create(applicationContext, R.raw.train)
             soundPlayer!!.isLooping = true
-            Toast.makeText(this, "Servicio sonido activado", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, R.string.soundservon, Toast.LENGTH_LONG).show()
             soundPlayer!!.start()
         }
 

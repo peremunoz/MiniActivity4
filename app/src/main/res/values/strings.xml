@@ -7,4 +7,14 @@
     <string name="botoFin">Detener</string>
     <string name="tituloAct">Utilización de Servicios</string>
     <string name="rep_cancion">Reproducir canción</string>
+    <string name="songbtntoast">Seleccionado canción</string>
+    <string name="soundbtntoast">Seleccionado sonido</string>
+    <string name="finbtntoast">Seleccionado finalizar</string>
+    <string name="recvplugon">BroadcastReceiver - HEADSET_PLUG-ON</string>
+    <string name="recvplugoff">BroadcastReceiver - HEADSET_PLUG-OFF</string>
+    <string name="soundservon">Servicio sonido activado</string>
+    <string name="songservon">Servicio canción activado</string>
+    <string name="recvsound">BroadcastReceiver - Inicio reproducción sonido</string>
+    <string name="recvsong">BroadcastReceiver - Inicio reproducción canción</string>
+    <string name="recvoff">BroadcastReceiver - Detención reproducción</string>
 </resources>

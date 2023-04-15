@@ -16,13 +16,13 @@ class TheReceiver : BroadcastReceiver() {
         if (action == "start") {
             intentService.putExtra("type", type)
             if (type == "song") {
-                Toast.makeText(context, "BroadcastReceiver - Inicio reproducción canción", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, R.string.recvsong, Toast.LENGTH_LONG).show()
             } else if (type == "sound") {
-                Toast.makeText(context, "BroadcastReceiver - Inicio reproducción sonido", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, R.string.recvsound, Toast.LENGTH_LONG).show()
             }
             context.startService(intentService)
         } else {
-            Toast.makeText(context, "BroadcastReceiver - Detención reproducción", Toast.LENGTH_LONG).show()
+            Toast.makeText(context, R.string.recvoff, Toast.LENGTH_LONG).show()
             context.stopService(intentService)
         }
     }

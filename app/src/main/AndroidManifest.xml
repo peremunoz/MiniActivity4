@@ -9,6 +9,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ManejoServicioKotlinInc">
         <receiver
+            android:name=".TheAutomaticReceiver"
+            android:enabled="true"
+            android:exported="true" />
+        <receiver
             android:name=".TheReceiver"
             android:enabled="true"
             android:exported="true" />
