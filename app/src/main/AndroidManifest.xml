@@ -8,6 +8,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ManejoServicioKotlinInc">
+        <receiver
+            android:name=".TheReceiver"
+            android:enabled="true"
+            android:exported="true" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -18,7 +23,9 @@
             </intent-filter>
         </activity>
 
-        <service android:enabled="true" android:name=".ElServicio"
+        <service
+            android:name=".ElServicio"
+            android:enabled="true"
             android:exported="false" />
     </application>
 
