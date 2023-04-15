@@ -8,7 +8,8 @@ import android.widget.Toast
 
 class ElServicio: Service() {
 
-    private var player: MediaPlayer? = null
+    private var soundPlayer: MediaPlayer? = null
+    private var songPlayer: MediaPlayer? = null
 
     override fun onBind(p0: Intent?): IBinder? {
         TODO("Not yet implemented")
@@ -24,22 +25,28 @@ class ElServicio: Service() {
 
         val type = intent!!.getStringExtra("type")
         if (type == "song") {
-            player = MediaPlayer.create(applicationContext, R.raw.song)
-            player!!.isLooping = true
+            songPlayer = MediaPlayer.create(applicationContext, R.raw.song)
+            songPlayer!!.isLooping = true
             Toast.makeText(this, "Servicio canción activado", Toast.LENGTH_LONG).show()
+            songPlayer!!.start()
         } else if (type == "sound") {
-            player = MediaPlayer.create(applicationContext, R.raw.train)
-            player!!.isLooping = true
+            soundPlayer = MediaPlayer.create(applicationContext, R.raw.train)
+            soundPlayer!!.isLooping = true
             Toast.makeText(this, "Servicio sonido activado", Toast.LENGTH_LONG).show()
+            soundPlayer!!.start()
         }
 
-        player!!.start()
         return startId
     }
 
     override fun onDestroy() {
         super.onDestroy()
         Toast.makeText(this, R.string.finaserv, Toast.LENGTH_LONG).show()
-        player!!.stop()
+        if (soundPlayer != null && soundPlayer!!.isPlaying) {
+            soundPlayer!!.stop()
+        }
+        if (songPlayer != null && songPlayer!!.isPlaying) {
+            songPlayer!!.stop()
+        }
     }
 }
